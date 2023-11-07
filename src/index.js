@@ -1,3 +1,9 @@
+import displayItem from "./newItem.js";
+import removeElements from "./clearDiv.js"
+
+let projectName = prompt("Give new array Name");
+projectName = [];
+
 document.addEventListener('DOMContentLoaded', function() {
 
 const button = document.querySelector("button");
@@ -7,6 +13,9 @@ button.onclick = main;
 });
 
 function main() {
+
+    // Storing div, which displays array items
+    const listItems = document.getElementById("items");
 
     const title = prompt("Name of the list item: ");
     const description = prompt("describe");
@@ -25,12 +34,16 @@ function main() {
 
     const example = new Item(title, description, dueDate, priority);
 
-    console.log(example);
-
-    let projectName = prompt("Give new array Name");
-    projectName = [];
     projectName.push(example);
+
+    // Removing the existing list items and displaying the whole array again
+    removeElements(listItems);
+
+    for (const project of projectName) {
+        displayItem(project);
+    }
 
     console.log(projectName);
 
 }
+
