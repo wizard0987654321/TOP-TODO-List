@@ -1,12 +1,11 @@
 import displayItem from "./newItem.js";
 import removeElements from "./clearDiv.js"
 
-let projectName = prompt("Give new array Name");
-projectName = [];
+let allItems = [];
 
 document.addEventListener('DOMContentLoaded', function() {
 
-const button = document.querySelector("button");
+const button = document.querySelector(".newItem");
 
 button.onclick = main;
 
@@ -34,16 +33,16 @@ function main() {
 
     const example = new Item(title, description, dueDate, priority);
 
-    projectName.push(example);
+    allItems.push(example);
 
     // Removing the existing list items and displaying the whole array again
     removeElements(listItems);
 
-    for (const project of projectName) {
-        displayItem(project);
+    for (const item of allItems) {
+        displayItem(item);
     }
 
-    console.log(projectName);
+    console.log(allItems);
 
 }
 

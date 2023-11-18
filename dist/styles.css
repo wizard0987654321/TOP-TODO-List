@@ -1,12 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Oregano&display=swap');
+
+
 * {
-    color: red;
+    color: #317773;
+    font-family: 'Oregano', cursive;
+}
+
+body {
+    margin-left: 0px;
 }
 
 .item {
     display: flex;
     gap: 2rem;
     align-items: center;
-    background-color: aquamarine;
+    background-color: #E2D1F9;
     border-radius: 8px;
     padding: 0.5rem;
+    height: 10%;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+#items {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    margin-right: 2rem;
+    background-color: #E2D1F9;
+    width: 15%;
+    height: 100vh;
+    padding: 1rem;
+    border: 1px solid #317773;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 2rem;
+}
+
+li:hover{
+    cursor: pointer;
 }
