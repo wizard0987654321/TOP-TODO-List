@@ -8,6 +8,7 @@ export default function displayItem(item) {
     const itemDescription = document.createElement("p");
 
     newItem.classList.add("item");
+    itemButton.classList.add("delete");
     itemButton.textContent = "✔";
     itemTitle.textContent = item.title;
     itemDescription.textContent = item.description;

@@ -1,20 +1,37 @@
-import displayItem from "./newItem.js";
+import displayItem from "./newItem.js"
 import removeElements from "./clearDiv.js"
+import addProject from "./addProject.js"
 
 let allItems = [];
+let allProjects = {};
 
 document.addEventListener('DOMContentLoaded', function() {
 
-const button = document.querySelector(".newItem");
+// Storing div, which displays array items
+const listItems = document.getElementById("items");
 
-button.onclick = main;
+const addNote = document.getElementById("newNote");
+
+const projectsButton = document.getElementById("addProject");
+
+let allNotes = document.querySelector("li.project");
+
+addNote.onclick = main;
+
+projectsButton.onclick = function() {
+    const name = prompt("Give project name");
+    allProjects[name] = [];
+    addProject(name, listItems, allProjects);
+    console.log(allProjects);
+}
+
+allNotes.onclick = function() {
+    console.log(allNotes);
+    }
 
 });
 
 function main() {
-
-    // Storing div, which displays array items
-    const listItems = document.getElementById("items");
 
     const title = prompt("Name of the list item: ");
     const description = prompt("describe");
@@ -33,8 +50,11 @@ function main() {
 
     const example = new Item(title, description, dueDate, priority);
 
-    allItems.push(example);
+    // Storing div, which displays array items
+    const listItems = document.getElementById("items");
 
+    allItems.push(example);
+    
     // Removing the existing list items and displaying the whole array again
     removeElements(listItems);
 
@@ -43,6 +63,5 @@ function main() {
     }
 
     console.log(allItems);
-
 }
 
