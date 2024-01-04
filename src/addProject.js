@@ -1,7 +1,11 @@
 import removeElements from "./clearDiv.js"
 import displayItem from "./newItem.js"
 
-export default function addProject(project, notes, projects) {
+let projectNow;
+
+export { projectNow, addProject };
+
+function addProject(project, notes, projects) {
     
     const projectList = document.getElementById("projects");
     const newProject = document.createElement("li");
@@ -10,8 +14,8 @@ export default function addProject(project, notes, projects) {
     projectList.appendChild(newProject);
     newProject.onclick = function() {
         openProject(newProject, notes, projects);  
+        projectNow = project;
     }
-
     console.log(project);
 }
 

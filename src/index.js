@@ -1,6 +1,6 @@
 import displayItem from "./newItem.js"
 import removeElements from "./clearDiv.js"
-import addProject from "./addProject.js"
+import { projectNow, addProject } from "./addProject.js"
 
 let allItems = [];
 let allProjects = {};
@@ -53,6 +53,7 @@ function main() {
     // Storing div, which displays array items
     const listItems = document.getElementById("items");
 
+    allProjects[projectNow].push(example);
     allItems.push(example);
     
     // Removing the existing list items and displaying the whole array again
