@@ -23,7 +23,7 @@ function openProject(project, notes, allProjects) {
     removeElements(notes);
     let currentProject = project.textContent;
     for (const note of allProjects[currentProject]) {
-        displayItem(note);
+        displayItem(note, allProjects["allNotes"], allProjects[currentProject]);
     }
 
     console.log(allProjects[currentProject]);

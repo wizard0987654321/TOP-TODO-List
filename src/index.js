@@ -2,8 +2,7 @@ import displayItem from "./newItem.js"
 import removeElements from "./clearDiv.js"
 import { projectNow, addProject } from "./addProject.js"
 
-let allItems = [];
-let allProjects = {};
+let allProjects = { "allNotes": [] };
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -14,7 +13,7 @@ const addNote = document.getElementById("newNote");
 
 const projectsButton = document.getElementById("addProject");
 
-let allNotes = document.querySelector("li.project");
+let allNotesButton = document.querySelector("li.project");
 
 addNote.onclick = main;
 
@@ -25,8 +24,15 @@ projectsButton.onclick = function() {
     console.log(allProjects);
 }
 
-allNotes.onclick = function() {
-    console.log(allNotes);
+allNotesButton.onclick = function() {
+    removeElements(listItems);
+
+    for (const item of allProjects["allNotes"]) {
+        displayItem(item, allProjects["allNotes"], allProjects[projectNow]);
+    }
+
+
+    console.log(allNotesButton);
     }
 
 });
@@ -48,21 +54,21 @@ function main() {
         }
     }
 
-    const example = new Item(title, description, dueDate, priority);
+    const newNote = new Item(title, description, dueDate, priority);
 
     // Storing div, which displays array items
     const listItems = document.getElementById("items");
 
-    allProjects[projectNow].push(example);
-    allItems.push(example);
+    allProjects[projectNow].push(newNote);
+    allProjects["allNotes"].push(newNote);
     
     // Removing the existing list items and displaying the whole array again
     removeElements(listItems);
 
-    for (const item of allItems) {
-        displayItem(item);
+    for (const item of allProjects[projectNow]) {
+        displayItem(item, allProjects["allNotes"], allProjects[projectNow]);
     }
 
-    console.log(allItems);
+    console.log(allProjects["allNotes"]);
 }
 
