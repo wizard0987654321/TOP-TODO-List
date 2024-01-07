@@ -25,13 +25,19 @@ export default function displayItem(item, allNotes, currentNotes) {
 function deleteNote(e, noteName, allNotes, currentNotes) {
     
     const allNotesIndex = allNotes.indexOf(noteName);
-    if (allNotesIndex !== -1) {
-        allNotes.splice(allNotesIndex, 1); // Remove matching noteName from allNotes
+    for (const index in allNotes) {
+        if (allNotes[index] === noteName) {
+            allNotes.splice(index, 1); 
+            break; 
+        }
     }
 
-    const currentNotesIndex = currentNotes.indexOf(noteName);
-    if (currentNotesIndex !== -1) {
-        currentNotes.splice(currentNotesIndex, 1); // Remove matching noteName from currentNotes
+    // Loop through currentNotes array
+    for (const index in currentNotes) {
+        if (currentNotes[index] === noteName) {
+            currentNotes.splice(index, 1); 
+            break; 
+        }
     }
 
     const deleteButton = e.target;
