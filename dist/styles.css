@@ -8,6 +8,17 @@
 
 body {
     margin-left: 0px;
+    background-color: #f2eef8;
+}
+
+header {
+    padding: 1rem 0;
+    margin-bottom: 0.5rem;
+    background-color: #317773;
+}
+
+h1 {
+    color: #f2eef8;
 }
 
 .item {
@@ -17,6 +28,8 @@ body {
     background-color: #E2D1F9;
     border-radius: 8px;
     padding: 0.5rem;
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
     height: 10%;
 }
 
@@ -36,7 +49,7 @@ nav {
     width: 15%;
     height: 100vh;
     padding: 1rem;
-    border: 1px solid #317773;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +61,22 @@ ul {
     font-size: 2rem;
 }
 
-li:hover{
+#newNote {
+    height: 3rem;
+    width: 4rem;
+}
+
+button {
+    background-color: #E2D1F9;
+    border-radius: 4px;
+    border: 2px solid #317773;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.project:hover {
     cursor: pointer;
 }
 

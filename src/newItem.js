@@ -6,6 +6,8 @@ export default function displayItem(item, allNotes, currentNotes) {
     const itemButton = document.createElement("button");
     const itemTitle = document.createElement("h4");
     const itemDescription = document.createElement("p");
+    const dueDateInput = document.createElement("input");
+    dueDateInput.type = "date";
 
     newItem.classList.add("item");
     itemButton.classList.add("delete");
@@ -13,7 +15,7 @@ export default function displayItem(item, allNotes, currentNotes) {
     itemTitle.textContent = item.title;
     itemDescription.textContent = item.description;
 
-    newItem.append(itemButton, itemTitle, itemDescription);
+    newItem.append(itemTitle, itemDescription, dueDateInput, itemButton);
 
     webpage.appendChild(newItem);
 

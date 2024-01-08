@@ -23,7 +23,7 @@ function openProject(project, notes, allProjects) {
     removeElements(notes);
     let currentProject = project.textContent;
     for (const note of allProjects[currentProject]) {
-        displayItem(note, allProjects["allNotes"], allProjects[currentProject]);
+        displayItem(note, allProjects["All Notes"], allProjects[currentProject]);
     }
 
     console.log(allProjects[currentProject]);
@@ -31,5 +31,5 @@ function openProject(project, notes, allProjects) {
 }
 
 function setProjectNow() {
-    projectNow = "allNotes";
+    projectNow = "All Notes";
 }
