@@ -3,7 +3,7 @@ import displayItem from "./newItem.js"
 
 let projectNow;
 
-export { projectNow, addProject };
+export { projectNow, addProject, setProjectNow };
 
 function addProject(project, notes, projects) {
     
@@ -28,4 +28,8 @@ function openProject(project, notes, allProjects) {
 
     console.log(allProjects[currentProject]);
     console.log(project);
+}
+
+function setProjectNow() {
+    projectNow = "allNotes";
 }

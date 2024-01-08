@@ -1,10 +1,14 @@
 import displayItem from "./newItem.js"
 import removeElements from "./clearDiv.js"
-import { projectNow, addProject } from "./addProject.js"
+import { projectNow, addProject, setProjectNow } from "./addProject.js"
 
 let allProjects = { "allNotes": [] };
 
+
 document.addEventListener('DOMContentLoaded', function() {
+
+// Set current project to allNotes, so after reloading the page new note will be saved in all notes
+setProjectNow();
 
 // Storing div, which displays array items
 const listItems = document.getElementById("items");
@@ -26,6 +30,7 @@ projectsButton.onclick = function() {
 
 allNotesButton.onclick = function() {
     removeElements(listItems);
+    setProjectNow();
 
     for (const item of allProjects["allNotes"]) {
         displayItem(item, allProjects["allNotes"], allProjects[projectNow]);
@@ -59,8 +64,12 @@ function main() {
     // Storing div, which displays array items
     const listItems = document.getElementById("items");
 
-    allProjects[projectNow].push(newNote);
-    allProjects["allNotes"].push(newNote);
+    if (projectNow != "allNotes") {
+        allProjects[projectNow].push(newNote);
+        allProjects["allNotes"].push(newNote);
+    } else {
+        allProjects["allNotes"].push(newNote);
+    }
     
     // Removing the existing list items and displaying the whole array again
     removeElements(listItems);
