@@ -56,7 +56,7 @@ function createNoteObj() {
     const title = document.getElementById('titleInput').value;
     const description = document.getElementById('descriptionInput').value;
     const dueDate = document.getElementById('dueDateInput').value;
-    const priority = document.getElementById('priorityInput').value;
+    const priority = document.getElementById('priority').value;
 
 
 

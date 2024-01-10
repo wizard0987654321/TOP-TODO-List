@@ -32,17 +32,21 @@
                 <div class="noteDiv-content">
                     <form id="itemForm">
 
-                        <label for="titleInput">Name of the list item:</label>
+                        <label for="titleInput">Note Name</label>
                         <input type="text" id="titleInput" name="title">
                         <br>
-                        <label for="descriptionInput">Description:</label>
+                        <label for="descriptionInput">Description</label>
                         <input id="descriptionInput" name="description"></input>
                         <br>
-                        <label for="dueDateInput">Due Date:</label>
+                        <label for="dueDateInput">Due Date</label>
                         <input type="date" id="dueDateInput" name="dueDate">
                         <br>
-                        <label for="priorityInput">Priority:</label>
-                        <input type="text" id="priorityInput" name="priority">
+                        <label for="priority">Priority</label>
+                        <select name="priority" id="priority">
+                            <option value="HIGH">High</option>
+                            <option value="AVERAGE">Average</option>
+                            <option value="LOW">Low</option>
+                        </select>
                         <br>
                         <button type="submit" id="addNoteButton">Add Note</button>
 

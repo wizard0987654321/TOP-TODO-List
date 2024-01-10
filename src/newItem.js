@@ -8,14 +8,24 @@ export default function displayItem(item, allNotes, currentNotes) {
     const itemDescription = document.createElement("p");
     const dueDateInput = document.createElement("input");
     dueDateInput.type = "date";
+    const itemPriority = document.createElement("p");
 
     newItem.classList.add("item");
     itemButton.classList.add("delete");
     itemButton.textContent = "Delete";
     itemTitle.textContent = item.title;
     itemDescription.textContent = item.description;
+    itemPriority.textContent = item.priority;
+    if (item.priority == "HIGH") {
+        itemPriority.style.color = "red";
+    } else if (item.priority == "AVERAGE") {
+        itemPriority.style.color = "rgb(148, 143, 3)";
+    } else {
+        itemPriority.style.color = "green";
+    }
+    
 
-    newItem.append(itemTitle, itemDescription, dueDateInput, itemButton);
+    newItem.append(itemTitle, itemDescription, dueDateInput, itemPriority, itemButton);
 
     webpage.appendChild(newItem);
 
