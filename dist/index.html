@@ -25,8 +25,31 @@
             <button type="submit" id="newNote">New Note</button>
 
             <div id="items">
-                
+
             </div>
+
+            <div class="noteDiv">
+                <div class="noteDiv-content">
+                    <form id="itemForm">
+
+                        <label for="titleInput">Name of the list item:</label>
+                        <input type="text" id="titleInput" name="title">
+                        <br>
+                        <label for="descriptionInput">Description:</label>
+                        <input id="descriptionInput" name="description"></input>
+                        <br>
+                        <label for="dueDateInput">Due Date:</label>
+                        <input type="date" id="dueDateInput" name="dueDate">
+                        <br>
+                        <label for="priorityInput">Priority:</label>
+                        <input type="text" id="priorityInput" name="priority">
+                        <br>
+                        <button type="submit" id="addNoteButton">Add Note</button>
+
+                    </form>
+                </div>
+            </div>
+
         </main>
 
         <footer>

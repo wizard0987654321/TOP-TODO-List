@@ -12,14 +12,13 @@ setProjectNow();
 
 // Storing div, which displays array items
 const listItems = document.getElementById("items");
-
-const addNote = document.getElementById("newNote");
-
+const createNote = document.getElementById("newNote");
+const addNote = document.getElementById("addNoteButton");
 const projectsButton = document.getElementById("addProject");
 
 let allNotesButton = document.querySelector("li.project");
 
-addNote.onclick = main;
+createNote.onclick = showNoteDiv;
 
 projectsButton.onclick = function() {
     const name = prompt("Give project name");
@@ -40,14 +39,25 @@ allNotesButton.onclick = function() {
     console.log(allNotesButton);
     }
 
+    addNote.onclick = function(event) {
+        event.preventDefault();
+        createNoteObj();
+    };
 });
 
-function main() {
+function showNoteDiv() {
 
-    const title = prompt("Name of the list item: ");
-    const description = prompt("describe");
-    const dueDate = "2023-12-01";
-    const priority = prompt("How important");
+    const noteDiv = document.querySelector(".noteDiv");
+    noteDiv.style.display = "flex";
+
+}
+
+function createNoteObj() {
+    const title = document.getElementById('titleInput').value;
+    const description = document.getElementById('descriptionInput').value;
+    const dueDate = document.getElementById('dueDateInput').value;
+    const priority = document.getElementById('priorityInput').value;
+
 
 
     class Item {
@@ -78,6 +88,17 @@ function main() {
         displayItem(item, allProjects["All Notes"], allProjects[projectNow]);
     }
 
+    clearInputFields();
+
+    const noteDiv = document.querySelector(".noteDiv");
+    noteDiv.style.display = "none";
+
     console.log(allProjects["All Notes"]);
 }
 
+function clearInputFields() {
+    const fields = document.querySelectorAll("input");
+    for(const field of fields) {
+        field.value = "";
+    }
+}

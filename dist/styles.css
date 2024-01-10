@@ -8,12 +8,12 @@
 
 body {
     margin-left: 0px;
+    margin-top: 0px;
     background-color: #f2eef8;
 }
 
 header {
     padding: 1rem 0;
-    margin-bottom: 0.5rem;
     background-color: #317773;
 }
 
@@ -64,6 +64,7 @@ ul {
 #newNote {
     height: 3rem;
     width: 4rem;
+    margin-top: 1rem;
 }
 
 button {
@@ -80,3 +81,22 @@ button:hover {
     cursor: pointer;
 }
 
+.noteDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(12, 12, 12, 0.7);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.noteDiv-content {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 4px;
+    text-align: center;
+}
