@@ -1,6 +1,7 @@
 import displayItem from "./newItem.js"
 import removeElements from "./clearDiv.js"
 import { projectNow, addProject, setProjectNow } from "./addProject.js"
+import showNoteDiv from "./showNote.js";
 
 let allProjects = { "All Notes": [] };
 
@@ -44,13 +45,6 @@ allNotesButton.onclick = function() {
         createNoteObj();
     };
 });
-
-function showNoteDiv() {
-
-    const noteDiv = document.querySelector(".noteDiv");
-    noteDiv.style.display = "flex";
-
-}
 
 function createNoteObj() {
     const title = document.getElementById('titleInput').value;

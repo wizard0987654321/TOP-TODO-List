@@ -54,6 +54,33 @@
                 </div>
             </div>
 
+            <div class="editNoteDiv">
+                <div class="editNoteDiv-content">
+                    <form id="editItemForm">
+
+                        <label for="titleEditInput">Note Name</label>
+                        <input type="text" id="titleEditInput" name="title">
+                        <br>
+                        <label for="descriptionEditInput">Description</label>
+                        <input id="descriptionEditInput" name="description"></input>
+                        <br>
+                        <label for="dueDateEditInput">Due Date</label>
+                        <input type="date" id="dueDateEditInput" name="dueDate">
+                        <br>
+                        <label for="priorityEdit">Priority</label>
+                        <select name="priority" id="priorityEdit">
+                            <option value="HIGH">High</option>
+                            <option value="AVERAGE">Average</option>
+                            <option value="LOW">Low</option>
+                        </select>
+                        <br>
+                        <button type="submit" id="editNoteButton">Confirm Edit</button>
+
+                    </form>
+                </div>
+            </div>
+
+
         </main>
 
         <footer>
