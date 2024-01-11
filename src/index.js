@@ -2,6 +2,7 @@ import displayItem from "./newItem.js"
 import removeElements from "./clearDiv.js"
 import { projectNow, addProject, setProjectNow } from "./addProject.js"
 import showNoteDiv from "./showNote.js";
+import { format } from 'date-fns';
 
 let allProjects = { "All Notes": [] };
 
@@ -47,11 +48,18 @@ allNotesButton.onclick = function() {
 });
 
 function createNoteObj() {
+    let dueDate = "";
+
     const title = document.getElementById('titleInput').value;
     const description = document.getElementById('descriptionInput').value;
-    const dueDate = document.getElementById('dueDateInput').value;
+    const unformatedDueDate = document.getElementById('dueDateInput').value;
+    if(!unformatedDueDate) {
+        alert("Please Choose a Date!");
+        return;
+    } else {
+        dueDate = format(new Date(unformatedDueDate), 'dd-MM-yyyy');
+    }
     const priority = document.getElementById('priority').value;
-
 
 
     class Item {

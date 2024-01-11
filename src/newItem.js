@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 export default function displayItem(item, allNotes, currentNotes) {
 
     const webpage = document.getElementById("items");
@@ -6,20 +8,23 @@ export default function displayItem(item, allNotes, currentNotes) {
     const itemButton = document.createElement("button");
     const itemTitle = document.createElement("h4");
     const itemDescription = document.createElement("p");
-    const dueDateInput = document.createElement("input");
-    dueDateInput.type = "date";
+    const itemDueDate = document.createElement("p");
     const itemPriority = document.createElement("p");
     const editButton = document.createElement("button");
 
     newItem.classList.add("item");
     itemDescription.classList.add("description");
+    itemDueDate.classList.add("date");
     itemPriority.classList.add("priority")
     itemButton.classList.add("delete");
     itemButton.textContent = "Delete";
     itemTitle.textContent = item.title;
     itemDescription.textContent = item.description;
+    itemDueDate.textContent = item.dueDate;
     if (item.priority == "HIGH") {
         itemPriority.style.color = "red";
+
+
         itemPriority.textContent = "URGENT";
     } else if (item.priority == "AVERAGE") {
         itemPriority.style.color = "rgb(148, 143, 3)";
@@ -31,7 +36,7 @@ export default function displayItem(item, allNotes, currentNotes) {
     editButton.textContent = "Edit";
     
 
-    newItem.append(itemTitle, itemDescription, dueDateInput, itemPriority, editButton, itemButton);
+    newItem.append(itemTitle, itemDescription, itemDueDate, itemPriority, editButton, itemButton);
 
     webpage.appendChild(newItem);
 
@@ -88,7 +93,7 @@ function updateNote(e, currentNote, item) {
 
     const thisTitle = currentNote.querySelector("h4");
     const thisDescription = currentNote.querySelector("p.description");
-    const thisDueDate = currentNote.querySelector("input");
+    const thisDueDate = currentNote.querySelector("p.date");
     const thisPriority = currentNote.querySelector("p.priority");
 
     thisTitle.textContent = document.getElementById("titleEditInput").value;
@@ -97,21 +102,28 @@ function updateNote(e, currentNote, item) {
     thisDescription.textContent = document.getElementById("descriptionEditInput").value;
     item.description = document.getElementById("descriptionEditInput").value;
 
-    thisDueDate.value = document.getElementById("dueDateEditInput").value;
-    item.dueDate = document.getElementById("dueDateEditInput").value;
+    const unformatedDueDate = document.getElementById("dueDateEditInput").value;
+    if(!unformatedDueDate) {
+        alert("Please Choose a Date!");
+        return;
+    } else {
+        thisDueDate.textContent = format(new Date(unformatedDueDate), 'dd-MM-yyyy');
+        item.dueDate = format(new Date(unformatedDueDate), 'dd-MM-yyyy');
+    }
+    
 
     if (document.getElementById("priorityEdit").value == "HIGH") {
         thisPriority.style.color = "red";
         thisPriority.textContent = "URGENT";
-        item.priority = "URGENT";
+        item.priority = "HIGH";
     } else if (document.getElementById("priorityEdit").value == "AVERAGE") {
         thisPriority.style.color = "rgb(148, 143, 3)";
-        thisPriority.textContent = "Important";
+        thisPriority.textContent = "AVERAGE";
         item.priority = "Important";
     } else {
         thisPriority.style.color = "green";
         thisPriority.textContent = "Can do later";
-        item.priority = "Can do later";
+        item.priority = "LOW";
     }
 
     const editNoteDiv = document.querySelector(".editNoteDiv");
