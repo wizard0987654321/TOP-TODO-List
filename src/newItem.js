@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 
+// Creating new note DOM element and displaying it
 export default function displayItem(item, allNotes, currentNotes) {
 
     const webpage = document.getElementById("items");
@@ -23,8 +24,6 @@ export default function displayItem(item, allNotes, currentNotes) {
     itemDueDate.textContent = item.dueDate;
     if (item.priority == "HIGH") {
         itemPriority.style.color = "red";
-
-
         itemPriority.textContent = "URGENT";
     } else if (item.priority == "AVERAGE") {
         itemPriority.style.color = "rgb(148, 143, 3)";
@@ -49,8 +48,10 @@ export default function displayItem(item, allNotes, currentNotes) {
     }
 }
 
+// Creating the function, that takes care of "delete" button, that is property of each note
 function deleteNote(e, noteName, allNotes, currentNotes) {
     
+    // Loop through allNotes array
     const allNotesIndex = allNotes.indexOf(noteName);
     for (const index in allNotes) {
         if (allNotes[index] === noteName) {
@@ -72,6 +73,7 @@ function deleteNote(e, noteName, allNotes, currentNotes) {
     row.remove();
 }
 
+// Creating function, that takes care of "edit" button
 function editNote(e, item) {
     const currentNote = e.target.closest("div");
     const confirmEditButton = document.getElementById("editNoteButton");
@@ -88,6 +90,7 @@ function editNote(e, item) {
     }
 }
 
+// Updating the note display, the DOM element
 function updateNote(e, currentNote, item) {
     e.preventDefault();
 
@@ -118,8 +121,8 @@ function updateNote(e, currentNote, item) {
         item.priority = "HIGH";
     } else if (document.getElementById("priorityEdit").value == "AVERAGE") {
         thisPriority.style.color = "rgb(148, 143, 3)";
-        thisPriority.textContent = "AVERAGE";
-        item.priority = "Important";
+        thisPriority.textContent = "Important";
+        item.priority = "AVERAGE";
     } else {
         thisPriority.style.color = "green";
         thisPriority.textContent = "Can do later";

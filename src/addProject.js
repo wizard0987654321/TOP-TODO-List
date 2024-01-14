@@ -5,6 +5,7 @@ let projectNow;
 
 export { projectNow, addProject, setProjectNow };
 
+// Creating new project as a DOM element
 function addProject(project, notes, projects) {
     
     const projectList = document.getElementById("projects");
@@ -19,6 +20,7 @@ function addProject(project, notes, projects) {
     console.log(project);
 }
 
+// Displaying new project on the screen 
 function openProject(project, notes, allProjects) {
     removeElements(notes);
     let currentProject = project.textContent;
